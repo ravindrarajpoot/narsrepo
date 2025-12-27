@@ -1,0 +1,27 @@
+{
+  "name": "nars.api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/server.js",
+  "scripts": {
+    "build": "npm run tsoa:generate && tsc",
+    "build:prod": "npm run tsoa:generate && npm run build",
+    "start": "node .\\dist\\server.js",
+    "watch": "tsc --watch",
+    "tsoa:generate": "tsoa generate",
+    "tsoa:spec:generate": "tsoa spec",
+    "tsoa:routes:generate": "tsoa routes",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^25.0.3",
+    "tsoa": "^7.0.0-alpha.0",
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "@tsoa/runtime": "^7.0.0-alpha.0"
+  }
+}
