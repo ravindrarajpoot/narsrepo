@@ -57,7 +57,7 @@ const Index = () => {
           <img
             src={heroBg}
             alt="Community gathering"
-            className="w-full h-full object-cover"
+            className="h-full object-cover"
           />
           <div className="absolute inset-0 hero-overlay" />
         </div>
@@ -66,7 +66,7 @@ const Index = () => {
         <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-primary-foreground mb-6 opacity-0 animate-fade-up">
             Welcome to Our<br />
-            <span className="text-accent">Community</span>
+            <span className="text-accent">NARS Community</span>
           </h1>
           <p className="text-lg sm:text-xl text-primary-foreground/90 max-w-2xl mx-auto mb-8 opacity-0 animate-fade-up" style={{ animationDelay: "200ms" }}>
             Where connections flourish, memories are made, and every member matters. 

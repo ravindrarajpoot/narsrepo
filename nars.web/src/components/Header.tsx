@@ -24,7 +24,7 @@ export function Header() {
             to="/" 
             className="font-display text-xl md:text-2xl font-bold text-primary hover:opacity-80 transition-opacity"
           >
-            Community Hub
+            Narmada Aanchal Rajput Samaj
           </Link>
 
           {/* Desktop Navigation */}
