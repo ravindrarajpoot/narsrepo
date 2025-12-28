@@ -1,14 +1,17 @@
 {
   // Visit https://aka.ms/tsconfig to read more about this file
-  "compilerOptions": {   
+  "compilerOptions": {
     "module": "nodenext",
     "target": "esnext",
     "outDir": "./dist",
-    "rootDir": ".",
+    "rootDir": ".",    
     "types": [],
     "sourceMap": true,
     "declaration": true,
     "declarationMap": true,
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true,
 
     // Stricter Typechecking Options
     "noUncheckedIndexedAccess": true,
@@ -16,11 +19,13 @@
 
     // Recommended Options
     "strict": true,
-    "verbatimModuleSyntax": true,
+    "verbatimModuleSyntax": false,
     "isolatedModules": true,
     "noUncheckedSideEffectImports": true,
     "moduleDetection": "force",
-    "skipLibCheck": true,
+    "skipLibCheck": true
   },
-  "include": ["**/*.ts"]
+  "include": ["src", "src/types/**/*.d.ts"],
+  //"include": ["**/*.ts"],
+  "exclude": ["include_modules", "dist"]
 }
