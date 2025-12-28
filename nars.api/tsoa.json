@@ -1,0 +1,26 @@
+
+{
+  "entryFile": "app.ts",
+  "noImplicitAdditionalProperties": "throw-on-extras",
+  "controllerPathGlobs": ["controllers/**/*Controller.ts"],
+  "spec": {
+    "outputDirectory": "dist",
+    "specVersion": 3,
+    "name": "NARS API",
+    "version": "1.0.0",
+    "license": {
+      "name": "MIT"
+    }
+  },
+  "routes": {
+    "routesDir": "routes/generated",
+    "basePath": "/api",
+    "middleware": "express",
+    "bodyCoercion": true 
+  },
+  "compilerOptions": {
+    "esmoduleinterop": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true
+  }
+}

@@ -1,0 +1,7 @@
+{
+    "baseUrl": "http://localhost:3000",
+    "appPort": 3000,
+    "dbConnectionString": "mongodb://localhost:27017/narsdb",
+    "jwtSecret": "your_jwt_secret_here",
+    "logLevel": "info"
+}

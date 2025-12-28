@@ -1,20 +1,17 @@
+import swaggerJsdoc from 'swagger-jsdoc';
 import { Options } from 'swagger-jsdoc';
 
 const swaggerOptions: Options = {
   definition: {
-    openapi: '3.0.0', // OpenAPI version
+    openapi: '3.0.0', // Specify the OpenAPI version
     info: {
-      title: 'Node.js TypeScript API',
+      title: 'My Node.js TypeScript API',
       version: '1.0.0',
-      description: 'API documentation for my professional Node.js service',
-      contact: {
-        name: 'Developer Support',
-        email: 'support@example.com',
-      },
+      description: 'API documentation using Swagger and JSDoc',
     },
     servers: [
       {
-        url: 'http://localhost:3000',
+        url: 'http://localhost:3000', // Update with your server URL
         description: 'Development server',
       },
     ],
@@ -28,9 +25,10 @@ const swaggerOptions: Options = {
       },
     },
   },
-  // Path to the API docs (relative to project root)
-  // Ensure your compiled .js or .ts files are included
-  apis: ['./src/routes/*.ts', './src/models/*.ts'], 
+  // Path to the API docs (JSDoc comments in TypeScript files)
+  apis: ['./src/routes/*.ts', './src/controllers/*.ts'], // Adjust paths based on your project structure
 };
 
-export default swaggerOptions;
+const swaggerSpec = swaggerJsdoc(swaggerOptions);
+
+export default swaggerSpec;

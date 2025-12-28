@@ -1,12 +1,14 @@
 import 'express-async-errors';
-import express from 'express';
+import express, { json } from 'express';
 import cors from 'cors';
 import helmet from 'helmet';
 import morgan from 'morgan';
 import swaggerJsdoc from 'swagger-jsdoc';
 import swaggerUi from 'swagger-ui-express';
-import swaggerOptions from './utils/swagger/swaggerConfig';
+import swaggerSpec from './utils/swagger/swaggerConfig';
+import { RegisterRoutes } from "./routes/generated/routes";
 
+import * as swaggerDocument from './dist/swagger.json'; 
 const app = express();
 
 // Middlewares
@@ -15,7 +17,15 @@ app.use(cors());
 app.use(express.json());
 app.use(morgan('dev'));
 
+// // Use body parser to read sent json payloads
+// app.use(
+//   urlencoded({
+//     extended: true,
+//   })
+// );
+// app.use(json());
 
+RegisterRoutes(app);
 
 // If you use tsoa generated routes, they will be registered here if present
 try {
@@ -30,20 +40,9 @@ try {
 app.get('/health', (_req, res) => res.json({ status: 'ok' }));
 app.get('/api/hello', (_req, res) => res.json({ message: 'Hello from middle layer' }));
 
-// Setup Swagger UI (serves at /api-docs)
-const specs = swaggerJsdoc(swaggerOptions);
+// Setup Swagger UI (serves at /api/swagger)
+app.use('/api/swagger', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
-// Serve Swagger UI
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
-
-app.get('/swagger.json', (req, res) => {
-  res.setHeader('Content-Type', 'application/json');
-  res.send(specs);
-});
-
-app.listen(3000, () => {
-  console.log('Docs available at http://localhost:3000/api-docs');
-});
 
 // Generic error handler
 app.use((err: any, _req: express.Request, res: express.Response, _next: express.NextFunction) => {
