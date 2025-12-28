@@ -7,7 +7,7 @@ import aboutPreview from "@/assets/about-preview.jpg";
 const values = [
   {
     icon: Heart,
-    title: "Community First",
+    title: "NARS Community First",
     description: "Every decision we make puts our community members at the heart of it.",
   },
   {
